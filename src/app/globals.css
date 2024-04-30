@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  scroll-behavior: smooth;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -17,17 +21,348 @@
 }
 
 body {
+  font-size: large;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: white;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.section1{
+  background-color: rgb(250, 191, 3);
+}
+
+nav, .header{
+  padding-bottom: 10vh;
+}
+
+.parent{
+  font-size: 2em;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pencil_img_container h1{
+  font-size: 3em;
+  line-height: normal;
+}
+
+.pencil_img{
+  display: flex;
+  align-items: end;
+}
+
+
+/* About us section */
+.section2{
+  background-color:white;
+  /* background: radial-gradient(circle at center, #d4e2eb, #9bb9ca); */
+  padding: 10vh;
+}
+
+.header{
+  color: #fb9800;
+  padding-bottom: 5vh;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.image2_1{
+  width: 20%;
+  height: auto;
+  object-fit: contain;
+}
+
+.bio{
+  color: rgb(66, 66, 66);
+  font-weight: bold;
+  margin-left: 4vw;
+}
+
+.bio h1{
+  font-size: 1.5em;
+}
+
+.img2_2{
+  width: 50%;
+  opacity: 0.6;
+}
+/* work section */
+.grid_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18vw, 1fr));
+  grid-gap: 10px;
+}
+
+@media (max-width: 1025px) {
+  .grid_container {
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid_container {
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+  }
+}
+
+.grid_item {
+  background-color: #fb9800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-bottom: 53%;
+
+  transition: transform 0.3s ease-in-out;
+}
+
+.grid_item:hover{
+  z-index: 1;
+  transform: scale(1.2);
+}
+
+.grid_item:hover .grid_content{
+  backdrop-filter: brightness(85%);
+  opacity: 1;
+}
+
+.grid_content{
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  opacity: 0;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: opacity 0.3s ease,filter 0.5s ease;
+}
+
+/* POPUP */
+.popup{
+  z-index: 3;
+  background-color: rgb(45, 61, 89);
+  position: fixed;
+  width: 30%;
+  max-height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display:flex;
+  justify-content: center;
+
+  display: none;
+}
+
+.poup_container::-webkit-scrollbar{
+  background-color: rgb(246, 246, 246);
+  /* background-color: rgb(121, 144, 183); */
+  border-top: 3px solid rgb(45, 61, 89);
+  border-bottom: 3px solid rgb(45, 61, 89);
+  border-right: 3px solid rgb(45, 61, 89);
+}
+.poup_container::-webkit-scrollbar-thumb{
+  background-color:#fb9800;
+  /* border-radius: 25px; */
+}
+.poup_container::-webkit-scrollbar-thumb:hover{
+  background-color:#d7850a;
+}
+
+.bg{
+  width: 100%;
+  height: 823px;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle_bg{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.circle_bg::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background: rgb(45, 61, 89); /* Inner circle color */
+  border-radius: 50%; /* Make it a circle */
+}
+
+.top_circle{
+  background: 
+  radial-gradient(circle at 100% 50%, #ff6a00, transparent), /* Red radial gradient on the right */
+  radial-gradient(circle at 0% 50%, #ffd500, #ffd500); /* Blue radial gradient on the left */
+  top: -125px;
+  left: -125px;
+}
+
+.bottom_circle{
+  background: 
+  radial-gradient(circle at 60% 0%, #ff6a00, transparent), /* Red radial gradient on the right */
+  radial-gradient(circle at 40% 100%, #ffd500, #ffd500); /* Blue radial gradient on the left */
+  bottom: -120px;
+  right: -100px;
+}
+
+.poup_container{
+  width: 100%;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.popup_header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4%;
+  position: sticky;
+}
+
+.popup_header a{
+  position: absolute;
+  top: 0;
+  right: 1.5vw;
+
+  width: 25px;
+  height: 25px;
+  line-height: 20px;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.popup_inner h1{
+  margin-top: 10vh;
+  font-weight: bold;
+  text-align: center;
+  font-size: larger;
+  margin-bottom: 1vh;
+}
+
+.popup_img{
+  height: 250px;
+  background-color: rgb(246, 246, 246);
+}
+
+.popup_bot{
+  margin-top: 6vh;
+  padding: 0 25px;
+}
+
+.popup_bot ul{
+  font-size: 10px;
+  padding-left: 20px;
+  padding-bottom: 30px;
+  list-style-type: disc;
+}
+
+.popup_bot button{
+  background-color: #fb9800;
+  color: black;
+  font-size: smaller;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 2px 20px;
+  margin-top: 20px;
+  margin-bottom: 5vh;
+  border: 2px solid white;
+}
+
+/* partners section */
+
+.header_partner{
+  padding-bottom: 12vh;
+}
+
+.grid2_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13vw, 1fr));
+  grid-gap: 10px;
+}
+
+
+@media (max-width: 1025px) {
+  .grid2_container {
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .grid2_container {
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  }
+}
+
+.grid2_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12vh;
+}
+
+.grid2_item img{
+  border: 5px solid black;
+  border-radius: 50%;
+}
+
+.grid2_content:hover{
+  cursor: pointer;
+}
+
+.grid2_content{
+  text-align: center;
+  color: black;
+  font-weight: 800;
+}
+
+.grid2_content p{
+  margin-top: 2vh;
+}
+
+/* contact us section*/
+.section5{
+
+}
+
+.contactUs_container{
+  color:rgb(66, 66, 66);
+  font-weight: bold;
+}
+
+.contactUs_container h1{
+  font-size: 2.5em;
+}
+
+.contactUs_container h3{
+  font-size: 1.5em;
+}
+
+.contactBtn{
+  color: white;
+  border-radius: 25px;
+  background-color: #fb9800;
+  padding: 8px 90px;
 }

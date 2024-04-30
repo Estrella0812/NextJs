@@ -1,113 +1,291 @@
+"use client"; // This is a client component
 import Image from "next/image";
+import './responsive.css'
+
+import img1_1 from "../images/1_1.png"
+import img1_2 from "../images/1_2.png"
+import img2_1 from "../images/2_1.png"
+import img2_2 from "../images/2_2.png"
+import img5_1 from "../images/5_1.png"
+import logo1 from "../images/newslogo.png"
+
+import { useRef, useEffect } from 'react';
+
 
 export default function Home() {
+  const contentRef = useRef<HTMLDivElement>(null); // Create a ref for the scrollable content
+  let scrollableHeight
+  useEffect(() => {
+    if (contentRef.current) {
+      scrollableHeight = contentRef.current.scrollHeight;
+      console.log(scrollableHeight); // Output the scrollable height
+    }
+  }, []);
+
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="">
+      <section className="section1 flex min-h-screen flex-col items-center justify-center p-24">
+        <header className="">
+          <nav>
+            <ul className="flex justify-center">
+              <li className="inline p-5"><a href="#about_section">ABOUT</a></li>
+              <li className="inline p-5"><a href="#work_section">WORK</a></li>
+              <li className="inline p-5"><a href="#partners_section">PARTNERS</a></li>
+              <li className="inline p-5"><a href="#contactUs_section">CONTACT US</a></li>
+            </ul>
+          </nav>
+          <div className ="parent">
+          <Image className="pb-10"
+            src={img1_1}
+            alt="Landscape picture"
+            width={300}
+            height={500}
+          />
+          <div className="pencil_img_container flex items-stretch">
+            <h1>?</h1>
+            <div className="pencil_img">
+              <Image
+                className="img1_2"
+                src={img1_2}
+                alt="Landscape picture"
+                width={650}
+                height={500}
+              />
+            </div>
+             <h1>!</h1>
+          </div>
+          <h1 className="pt-3 header_quotation">THROW QUESTIONS</h1>
+          <h1 className="header_quotation">CATCH EXCLAMATIONS</h1>
+          </div>
+        </header>
+      </section>
+      
+      <section className="section2 flex min-h-screen flex-col items-center justify-between" id="about_section">
+        <div className="header">
+          <p>ABOUT US</p>
+        </div>
+        <div className="about_us_container flex justify-center">
+        <Image className="image2_1"
+            src={img2_1}
+            alt="Landscape picture"
+          />
+          <div className="bio block">
+            <h1>DESIGN & WEB DEVELOPMENT</h1>
+            <p>Our company has a team called 'Design People Toronto'</p>
+            <p>The team works on design for publication, and website</p>
+            <p>development with marketing focus on Korean communities,</p>
+            <p>companies. The team consists of professional desingers and</p>
+            <p>developers with more than 10 years of experience in the industry.</p>
+          </div>
+          
+        </div>
+        <Image
+            className="img2_2"
+            src={img2_2}
+            alt="Landscape picture"
+          />
+      </section>
+      <section className="section3 flex min-h-screen flex-col items-center justify-center p-24"  id="work_section">
+      <div className="header">
+          <p>WORK</p>
+      </div>
+      <div className="grid_container">
+        <div className="grid_item"><div className="grid_content">1</div></div>
+        <div className="grid_item"><div className="grid_content">2</div></div>
+        <div className="grid_item"><div className="grid_content">3</div></div>  
+        <div className="grid_item"><div className="grid_content">4</div></div>
+        <div className="grid_item"><div className="grid_content">5</div></div>
+        <div className="grid_item"><div className="grid_content">6</div></div>  
+        <div className="grid_item"><div className="grid_content">7</div></div>
+        <div className="grid_item"><div className="grid_content">8</div></div>
+        <div className="grid_item"><div className="grid_content">9</div></div>
+        <div className="grid_item"><div className="grid_content">10</div></div>  
+        <div className="grid_item"><div className="grid_content">11</div></div>  
+        <div className="grid_item"><div className="grid_content">12</div></div>  
+      </div>
+
+      {/* popup */}
+      <div className="popup">
+        <div className="bg" >
+          <div className="poup_container" ref={contentRef} style={{ maxHeight: "823px"}}>
+          <div className="circle_bg top_circle"></div>
+            <div className="popup_header">
+              <Image
+              src={img1_1}
+              alt="logo"
+              width={90}
+              />
+              <a href="">x</a>
+            </div>
+            <div className="popup_inner">
+              <h1>Logo & Symbol</h1>
+              <div className="popup_img">
+
+              </div>
+              <div className="popup_bot">
+                <ul>
+                  <li>Brand Naming</li>
+                  <li>Logos, symbols, embllem design</li>
+                  <li>Various options up to customer needs</li>
+                </ul>
+                <ul>
+                  <li>Basic</li>
+                  <li>Business</li>
+                  <li>Special</li>
+                </ul>
+                <ul>
+                  <li>Basic</li>
+                  <li>Business</li>
+                  <li>Special</li>
+                </ul>
+                <button>Order Now</button>
+              </div>
+            </div>
+            <div className="circle_bg bottom_circle"></div>
+          </div>
         </div>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      </section>
+      <section className="section4 flex min-h-screen flex-col items-center justify-center p-24" id="partners_section">
+      <div className="header">
+          <p className="header_partner">PARTNERS</p>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="grid2_container">
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <a href="https://cknnews.net/" target="_blank">
+              <Image
+              src={logo1}
+              alt="news logo"
+              />
+              <p>CKNNEWS</p>
+            </a>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
+        <div className="grid2_item">
+          <div className="grid2_content">
+            <Image
+            src={logo1}
+            alt="news logo"
+            />
+            <p>CKNNEWS</p>
+          </div>
+        </div>
       </div>
+      </section>
+      <section className="section5 flex min-h-screen flex-col items-center justify-center" id="contactUs_section">
+      <div className="header">
+          <p>CONTACT US</p>
+      </div>
+        <div className="contactUs_container text-center d-flex">
+          <div className="flex justify-center">
+            <Image className="pb-4"
+            src={img5_1}
+            alt="Design People Toronto"
+            width={230}
+            />
+          </div>
+          <h1>+1 437 552 2253</h1>
+          <h3 className="pb-10">dptoronto@gmail.com</h3>
+          <p>Monday - Friday : 9am - 5:30pm</p>
+          <p className="pb-10">Closed Satuarday, Sunday</p>
+          <p>H-4515 Chesswood Dr,</p>
+          <p className="pb-10">Toronto, ON M3J 2V6</p>
+          <button className="contactBtn">CONTACT</button>
+        </div>
+      </section>
     </main>
   );
 }

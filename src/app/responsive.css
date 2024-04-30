@@ -1,0 +1,83 @@
+@media (max-width: 1025px){
+    .section1{
+        padding: 0 2vw;
+    }
+    nav{
+        font-size: 20px;
+    }
+
+    /* About us */
+    .section2{
+        padding: 0 0;
+        justify-content: center;
+    }
+
+    /* .image2_1{
+        min-width: 50%;
+    }
+
+    .bio{}
+
+    .img2_2{
+        width: 100%;
+    } */
+}
+
+@media (max-width: 480px){
+    .section1{
+        padding: 0 2vw;
+        justify-content: flex-start;
+    }
+    nav{
+        font-size: 14px;
+        padding-bottom: 0;
+    }
+    .parent{
+        margin-top: 50%;
+    }
+    .img1_2 img{
+        width: 250px;
+    }
+    .pencil_img_container h1{
+        font-size: 2.2em;
+    }
+    .header_quotation{
+        font-size: 28px;
+    }
+
+    /* About us */
+    .section2{
+        padding: 0 0;
+        justify-content: center;
+    }
+
+    .about_us_container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image2_1{
+        min-width: 50%;
+    }
+
+    .bio{}
+
+    .img2_2{
+        width: 100%;
+    }
+
+    /* Work Section */
+    .section3{
+        padding: 0 2vw;
+    }
+
+    /* Partner Section */
+    .section4{
+        padding: 0 2vw;
+    }
+
+    .header_partner{
+        padding-bottom: 5vh;
+    }
+}
