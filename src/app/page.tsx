@@ -72,7 +72,7 @@ export default function Home() {
           />
           <div className="bio block">
             <h1>DESIGN & WEB DEVELOPMENT</h1>
-            <p>Our company has a team called 'Design People Toronto'</p>
+            <p>Our company has a team called &apos;Design People Toronto&apos;</p>
             <p>The team works on design for publication, and website</p>
             <p>development with marketing focus on Korean communities,</p>
             <p>companies. The team consists of professional desingers and</p>
