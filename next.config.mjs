@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    basePath: '/repo-name'
+    output: "export",
+    reactStrictMode: true,
+    basePath: '/NextJs',
 };
 
 export default nextConfig;
