@@ -13,14 +13,14 @@ import { useRef, useEffect } from 'react';
 
 
 export default function Home() {
-  const contentRef = useRef<HTMLDivElement>(null); // Create a ref for the scrollable content
-  let scrollableHeight
-  useEffect(() => {
-    if (contentRef.current) {
-      scrollableHeight = contentRef.current.scrollHeight;
-      console.log(scrollableHeight); // Output the scrollable height
-    }
-  }, []);
+  // const contentRef = useRef<HTMLDivElement>(null); // Create a ref for the scrollable content
+  // let scrollableHeight
+  // useEffect(() => {
+  //   if (contentRef.current) {
+  //     scrollableHeight = contentRef.current.scrollHeight;
+  //     console.log(scrollableHeight); // Output the scrollable height
+  //   }
+  // }, []);
 
 
   return (
@@ -108,7 +108,7 @@ export default function Home() {
       {/* popup */}
       <div className="popup">
         <div className="bg" >
-          <div className="poup_container" ref={contentRef} style={{ maxHeight: "823px"}}>
+          <div className="poup_container">
           <div className="circle_bg top_circle"></div>
             <div className="popup_header">
               <Image
